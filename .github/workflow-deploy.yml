@@ -1,0 +1,58 @@
+EADME
+License
+
+
+
+❖ KERM MD V4 ❖
+🔰 THE WORLD BEST WHATSAPP BOT CREATED BY KGTECH 🇨🇲 🔰
+
+
+
+
+
+Followers Stars Forks Size   
+
+
+
+KERM_MD-V4
+ 
+68747470733a2f2f692e696d6775722e636f6d2f4c7948696333692e676966
+  
+68747470733a2f2f692e696d6775722e636f6d2f4c7948696333692e676966
+
+
+
+❖ DEPLOY_WORKFLOWS ❖
+name: Node.js CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Start application
+      run: npm start
